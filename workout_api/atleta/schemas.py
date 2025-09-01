@@ -4,6 +4,12 @@ from workout_api.categorias.schemas import CategoriaIn
 from workout_api.centro_treinamento.schemas import CentroTreinamentoAtleta
 
 from workout_api.contrib.schemas import BaseSchema, OutMixin
+from pydantic import BaseModel, Field
+
+class AtletaAllOut(BaseModel):
+    nome: str = Field(description='Nome do atleta', example='Joao', max_length=50)
+    centro_treinamento: str = Field(description='Centro de treinamento do atleta', example='CT King')
+    categoria: str = Field(description='Categoria do atleta', example='Iniciante')
 
 
 class Atleta(BaseSchema):
